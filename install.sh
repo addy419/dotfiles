@@ -17,6 +17,6 @@ fi
 
 # Install Python Extensions
 sudo npm install -g neovim || exit;
-python3 -m pip install --upgrade neovim pynvim || exit;
+sudo python3 -m pip install --upgrade neovim pynvim || exit;
 
 echo "Completed Successfully .."
