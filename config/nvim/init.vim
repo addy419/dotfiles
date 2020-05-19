@@ -13,9 +13,6 @@ source ~/.config/nvim/statusline.vim
 " Mappings
 source ~/.config/nvim/map.vim
 
-" Python
-let g:python3_host_prog  = '/usr/bin/python3'
-
 " Mouse Controls
 set mouse=n
 
