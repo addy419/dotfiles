@@ -16,7 +16,7 @@ if [ "$min_version" != "True" ]; then
 fi
 
 # Install Python Extensions
-sudo npm install -g neovim || exit;
+sudo npm install -g neovim instant-markdown-d || exit;
 sudo python3 -m pip install --upgrade neovim pynvim || exit;
 
 echo "Completed Successfully .."
