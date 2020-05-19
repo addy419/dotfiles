@@ -1,0 +1,14 @@
+{
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.joinMessageLines": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.displayByAle": false,
+  "diagnostic.signOffset": 9999999,
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "suggest.noselect": true,
+  "javascript.showUnused": false,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript"]
+}
