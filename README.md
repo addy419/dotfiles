@@ -10,7 +10,7 @@
 - [Rcm](https://github.com/thoughtbot/rcm)
 
 ```
-$ git clone git@github.com:addy419/dotfiles.git
+$ git clone git@github.com:addy419/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ sh install.sh
 $ rcrc rcup -v
