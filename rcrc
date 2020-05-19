@@ -1,2 +1,2 @@
-EXCLUDES="README.md install.sh LICENSE"
+EXCLUDES="rcrc README.md install.sh LICENSE"
 
