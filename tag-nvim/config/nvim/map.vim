@@ -15,10 +15,30 @@ imap <silent> <M-F> <C-O>:call CocAction('format')<CR>
 "
 " FZF
 "
-nmap <silent> <leader><tab> <plug>(fzf-maps-n)
-nmap <silent> <leader><space> :Files<CR>
-nmap <silent> <leader>s :BLines<CR>
-nmap <leader>qr :QuickfixReplace
+nmap <silent> <Leader><tab> <plug>(fzf-maps-n)
+nmap <silent> <Leader><space> :Files<CR>
+nmap <silent> <Leader>s :BLines<CR>
+nmap <Leader>qr :QuickfixReplace
+"
+" Grammarous
+"
+nmap <silent> <Leader>gc :GrammarousCheck --no-preview<CR>
+"
+let g:grammarous#hooks = {}
+"
+function! g:grammarous#hooks.on_check(errs) abort
+  nmap <buffer><Leader>gr <Plug>(grammarous-reset) 
+  nmap <buffer><Leader>gf <Plug>(grammarous-fixit)
+  nmap <buffer><Leader>gp <Plug>(grammarous-move-to-previous-error)
+  nmap <buffer><Leader>gn <Plug>(grammarous-move-to-next-error)
+endfunction
+"
+function! g:grammarous#hooks.on_reset(errs) abort
+  nunmap <buffer><Leader>gr
+  nunmap <buffer><Leader>gf
+  nunmap <buffer><Leader>gp
+  nunmap <buffer><Leader>gn
+endfunction
 "
 " Jump to tab: <Leader>t
 "
