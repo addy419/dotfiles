@@ -3,7 +3,7 @@
 #### Arch Linux
 ```bash
 $ sudo pacman -Syy
-$ sudo pacman -S nodejs xclip npm yarn python python-pip ripgrep kitty kitty-terminfo neovim
+$ sudo pacman -S nodejs xclip npm yarn python python-pip ripgrep kitty kitty-terminfo neovim jdk8-openjdk
 $ pamac build rcm
 ```
 

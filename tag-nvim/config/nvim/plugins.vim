@@ -41,5 +41,8 @@ Plug 'sheerun/vim-polyglot'
 " Markdown Preview
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
+" Grammarous Check
+Plug 'rhysd/vim-grammarous'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
