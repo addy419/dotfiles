@@ -55,12 +55,12 @@ autocmd!  FileType list set laststatus=0 noruler
   \| autocmd BufLeave <buffer> set laststatus=2 ruler
 " Ignored Files
 let s:fzf_ignore = '.git/*'
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!{' . s:fzf_ignore . '}"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!{' . s:fzf_ignore . '}"'
 " Ripgrep
 let s:ripgrep_ignore = '*.lock'
 command! -bang -nargs=* Rg 
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --glob "!{' . s:ripgrep_ignore . '}" --smart-case -e ' . shellescape(<q-args>, 1), 1, 
+      \   'rg --column --line-number --no-heading --color=always --follow --glob "!{' . s:ripgrep_ignore . '}" --smart-case -e ' . shellescape(<q-args>, 1), 1, 
       \   fzf#vim#with_preview(), <bang>0
       \ )
 
