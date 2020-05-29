@@ -11,5 +11,5 @@
   "suggest.noselect": true,
   "javascript.showUnused": false,
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript"],
-  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"]
+  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2,dlib"]
 }
