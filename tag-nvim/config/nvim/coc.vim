@@ -1,6 +1,6 @@
 " Coc Plugins
 "
-let g:coc_global_extensions=['coc-json', 'coc-vimlsp', 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-python']
+let g:coc_global_extensions=['coc-json', 'coc-vimlsp', 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-python', 'coc-clangd']
 let g:markdown_fenced_languages = [
       \ 'vim',
       \ 'help'
