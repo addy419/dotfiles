@@ -41,5 +41,8 @@ Plug 'sheerun/vim-polyglot'
 " Markdown Preview
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
+" C/C++ Highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
