@@ -36,6 +36,9 @@ let g:workspace_autosave = 0
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 
+" Bclose
+let g:bclose_no_plugin_maps = 1
+
 " Ranger
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
