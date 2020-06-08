@@ -8,11 +8,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 
-" NerdTree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
@@ -29,9 +24,6 @@ Plug 'airblade/vim-gitgutter'
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Buffer Delete
-Plug 'moll/vim-bbye'
-
 " Vim Session
 Plug 'thaerkh/vim-workspace'
 
@@ -43,6 +35,12 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " C/C++ Highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Bclose
+Plug 'rbgrouleff/bclose.vim'
+
+" Ranger
+Plug 'francoiscabrol/ranger.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

@@ -1,12 +1,12 @@
 " Mappings
 "
 " NerdTree
-map <silent> <C-n> :NERDTreeToggle<CR>
+map <silent> <C-n> :RangerWorkingDirectory<CR>
 "
 " Buffer Delete
 "
-nnoremap <Leader>q :Bdelete<CR>
-nnoremap <Leader>q! :Bdelete!<CR>
+nnoremap <Leader>q :Bclose<CR>
+nnoremap <Leader>q! :Bclose!<CR>
 "
 " Format
 "

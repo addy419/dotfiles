@@ -10,9 +10,6 @@ source ~/.config/nvim/coc.vim
 " StatusLine
 source ~/.config/nvim/statusline.vim
 
-" Mappings
-source ~/.config/nvim/map.vim
-
 " Mouse Controls
 set mouse=n
 
@@ -39,11 +36,9 @@ let g:workspace_autosave = 0
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 
-" NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-let g:NERDTreeHighlightCursorline = 0
-let NERDTreeAutoDeleteBuffer = 1
+" Ranger
+let g:ranger_map_keys = 0
+let g:ranger_replace_netrw = 1
 
 " Fuzzy Finder
 "
@@ -71,3 +66,6 @@ set nofixendofline
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Mappings
+source ~/.config/nvim/map.vim
