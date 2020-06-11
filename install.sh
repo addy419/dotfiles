@@ -7,7 +7,6 @@ if [ ! -f "$NVIM_PLUG" ]; then
 fi
 
 # Python Runtime
-python3=`python3 -c "import sys; print(sys.executable)"`&&
 min_version=`python3 -c "import platform; major, minor, patch = platform.python_version_tuple(); print(major >= '3' and minor >= '6' and patch >= '1')"`&&
 
 if [ "$min_version" != "True" ]; then    
@@ -15,8 +14,7 @@ if [ "$min_version" != "True" ]; then
     exit
 fi
 
-# Install Python Extensions
+# Install Node Extensions
 sudo npm install -g neovim instant-markdown-d || exit;
-sudo python3 -m pip install --upgrade neovim pynvim || exit;
 
 echo "Completed Successfully .."

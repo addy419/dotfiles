@@ -3,7 +3,7 @@
 #### Arch Linux
 ```bash
 $ sudo pacman -Syy
-$ sudo pacman -S nodejs xclip npm yarn python python-pip ripgrep kitty kitty-terminfo neovim ranger
+$ sudo pacman -S nodejs xclip npm yarn python python-pip ripgrep kitty kitty-terminfo neovim ranger python-pynvim
 $ pamac build rcm
 ```
 
@@ -16,7 +16,7 @@ $ RCRC=./rcrc rcup -v -t nvim #For NeoVim
 ```
 
 ```bash
-- nvim # Node Yarn Python Ripgrep Ranger Neovim
+- nvim # Node Yarn Python Ripgrep Ranger Neovim Python-pynvim
 - kitty # Python
 - gestures # LibInputs
 ```
