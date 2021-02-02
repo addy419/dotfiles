@@ -1,6 +1,6 @@
 ## Dot Files
 
-### Usage
+#### Usage
 ```bash
 git clone git@github.com:addy419/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
