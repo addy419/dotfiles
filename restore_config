@@ -1,0 +1,141 @@
+#!/bin/python
+
+import argparse
+import subprocess
+import sys
+import os
+
+# Ignore Non-DotFiles
+ignore = ["restore_config", "README.md", "LICENSE"]
+
+# Scripts Used For Extra Features For Ex. DOOM for Emacs or VimPlug for Vim
+scripts = {"alacritty": [], "emacs": ["emacs_script"], "neovim": ["neovim_script"]}
+
+# Each Distro Can Use Multiple Package Managers For Ex. PacMan and Pip
+dependencies = {
+    "arch": [
+        {
+            "command": ["sudo", "pacman", "-Syu"],
+            "alacritty": ["alacritty"],
+            "emacs": [
+                "git",
+                "ripgrep",
+                "python",
+                "fd",
+                "find",
+                "zstd",
+                "aspel",
+                "aspell-en",
+                "texlive-most",
+                "texlab",
+                "glslang",
+                "ccls",
+                "python-pipenv",
+                "python-pytest",
+                "python-black",
+                "python-pyflakes",
+                "python-isort",
+                "nodejs",
+                "npm",
+                "yarn",
+            ],
+            "neovim": ["neovim", "ranger", "ripgrep", "xclip"],
+        }
+    ]
+}
+
+
+def subprocess_run_rt(args):
+    process = subprocess.Popen(
+        args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+    )
+    while True:
+        output = process.stdout.read(1)
+        if output == "" and process.poll() is not None:
+            break
+        if output != "":
+            sys.stdout.write(output)
+            sys.stdout.flush()
+    process.stdout.close()
+
+
+def main():
+    # Initialize parser
+    parser = argparse.ArgumentParser()
+
+    # Adding optional argument
+    parser.add_argument(
+        "-s",
+        "--sync",
+        nargs="+",
+        choices=scripts.keys(),
+        required=True,
+        help="Synchronizes DotFiles for provided programs",
+    )
+    parser.add_argument(
+        "-d",
+        "--deps",
+        choices=dependencies.keys(),
+        help="Dependencies for Linux distributions",
+    )
+
+    # Read arguments from command line
+    args = parser.parse_args()
+
+    rcm = subprocess.run(["which", "rcup"], capture_output=True, text=True)
+    if rcm.stderr != "":
+        raise Exception(
+            "RCM is not available, visit https://github.com/thoughtbot/rcm"
+        ) from None
+
+    # Run package managers
+    if args.deps is not None:
+        iterator = iter(dependencies[args.deps])
+        manager = next(iterator)
+        while True:
+            progs = []
+            for prog in args.sync:
+                progs = [*progs, *manager[prog]]
+
+            subprocess_run_rt([*manager["command"], *progs])
+
+            confirm = (
+                str(input("Proceed if no errors are found? (Y/n): ")).lower().strip()
+            )
+            if confirm[0] == "y":
+                try:
+                    manager = next(iterator)
+                except:
+                    break
+
+    # Run scripts
+    for prog in args.sync:
+        for script in scripts[prog]:
+            subprocess_run_rt(["sh", script])
+
+    confirm = (
+        str(input("Scripts have completed installation. Proceed? (Y/n): "))
+        .lower()
+        .strip()
+    )
+    if confirm[0] != "y":
+        exit()
+
+    # Ignore scripts
+    global ignore
+    for prog in scripts.keys():
+        ignore = [*ignore, *scripts[prog]]
+
+    # Generate rcm command
+    rcm = ["rcup", "-v", "-d", os.getcwd()]
+    for pattern in ignore:
+        rcm = [*rcm, *["-x", pattern]]
+    for prog in args.sync:
+        rcm = [*rcm, *["-t", prog]]
+
+    # Link configs
+    subprocess_run_rt(rcm)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,22 +1,8 @@
 # Dotfiles
 
-#### Arch Linux
+#### Usage
 ```bash
-$ sudo pacman -Syy
-$ sudo pacman -S nodejs xclip npm yarn python python-pip ripgrep kitty kitty-terminfo neovim ranger python-pynvim
-$ pamac build rcm
-```
-
-#### Configuration
-```bash
-$ git clone git@github.com:addy419/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ sh install.sh
-$ RCRC=./rcrc rcup -v -t nvim #For NeoVim
-```
-
-```bash
-- nvim # Node Yarn Python Ripgrep Ranger Neovim Python-pynvim
-- kitty # Python
-- gestures # LibInputs
+git clone git@github.com:addy419/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./restore_config -h
 ```
