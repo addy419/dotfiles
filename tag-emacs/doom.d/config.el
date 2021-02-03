@@ -79,7 +79,7 @@
    (lsp--session-workspaces (lsp-session))))
 
 ;; Sync directory
-(setq sync-directory "~/Dropbox/org")
+(setq sync-directory "~/Sync/org")
 
 ;; Convert org files [from org directory] to markdown on save and move them to sync directory
 (add-hook 'org-mode-hook

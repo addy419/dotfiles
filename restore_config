@@ -45,7 +45,7 @@ dependencies = {
 }
 
 
-def subprocess_run_rt(args):
+def run_command(args):
     process = subprocess.Popen(
         args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
     )
@@ -97,7 +97,7 @@ def main():
             for prog in args.sync:
                 progs = [*progs, *manager[prog]]
 
-            subprocess_run_rt([*manager["command"], *progs])
+            run_command([*manager["command"], *progs])
 
             confirm = (
                 str(input("Proceed if no errors are found? (Y/n): ")).lower().strip()
@@ -111,7 +111,7 @@ def main():
     # Run scripts
     for prog in args.sync:
         for script in scripts[prog]:
-            subprocess_run_rt(["sh", script])
+            run_command(["sh", script])
 
     confirm = (
         str(input("Scripts have completed installation. Proceed? (Y/n): "))
@@ -134,7 +134,7 @@ def main():
         rcm = [*rcm, *["-t", prog]]
 
     # Link configs
-    subprocess_run_rt(rcm)
+    run_command(rcm)
 
 
 if __name__ == "__main__":
