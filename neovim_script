@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 NVIM_PLUG=~/.local/share/nvim/site/autoload/plug.vim
 if [ ! -f "$NVIM_PLUG" ]; then
