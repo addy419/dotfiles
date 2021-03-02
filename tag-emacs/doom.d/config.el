@@ -51,7 +51,7 @@
     (save-some-buffers 1)))
 
 ;; Disable evil access to system clipboard
-(remove-hook 'tty-setup-hook 'doom-init-clipboard-in-tty-emacs-h)
+(setq select-enable-clipboard nil)
 
 ;; Insert mode ctrl-c ctrl-v
 (cua-selection-mode t)
