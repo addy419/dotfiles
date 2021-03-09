@@ -53,10 +53,11 @@
 ;; Disable evil access to system clipboard
 (setq select-enable-clipboard nil)
 
-;; Insert mode ctrl-c ctrl-v
-(cua-selection-mode t)
-(define-key evil-insert-state-map (kbd "C-c") 'cua-copy-region)
-(define-key evil-insert-state-map (kbd "C-v") 'cua-paste)
+;; Insert mode ctrl-v
+(define-key evil-insert-state-map (kbd "C-v")
+  (lambda ()
+    (interactive)
+    (call-interactively 'evil-paste-from-register)))
 
 ;; Basic config
 (setq display-time-format "%I:%M")
