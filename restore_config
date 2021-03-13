@@ -6,10 +6,10 @@ import sys
 import os
 
 # Ignore Non-DotFiles
-ignore = ["restore_config", "README.md", "LICENSE"]
+ignore = ["restore_config", "scripts", "README.md", "LICENSE"]
 
-# Scripts Used For Extra Features For Ex. DOOM for Emacs or VimPlug for Vim
-scripts = {"alacritty": [], "emacs": ["emacs_script"], "neovim": ["neovim_script"]}
+# Available applications
+choices = ["alacritty", "emacs", "neovim"]
 
 # Each Distro Can Use Multiple Package Managers For Ex. PacMan and Pip
 dependencies = {
@@ -68,7 +68,7 @@ def main():
         "-s",
         "--sync",
         nargs="+",
-        choices=scripts.keys(),
+        choices=choices,
         required=True,
         help="Synchronizes DotFiles for provided programs",
     )
@@ -110,8 +110,9 @@ def main():
 
     # Run scripts
     for prog in args.sync:
-        for script in scripts[prog]:
-            run_command(["sh", script])
+        path = f"./scripts/{prog}"
+        if os.path.isfile(path):
+            run_command(["sh", path])
 
     confirm = (
         str(input("Scripts have completed installation. Proceed? (Y/n): "))
@@ -120,11 +121,6 @@ def main():
     )
     if confirm[0] != "y":
         exit()
-
-    # Ignore scripts
-    global ignore
-    for prog in scripts.keys():
-        ignore = [*ignore, *scripts[prog]]
 
     # Generate rcm command
     rcm = ["rcup", "-v", "-d", os.getcwd()]
