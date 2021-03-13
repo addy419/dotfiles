@@ -16,7 +16,7 @@
 (setq doom-font (font-spec :family "Mononoki" :size 16 :weight 'regular))
 
 ;; Theme
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-dracula)
 
 ;; Org directory
 (setq org-directory "~/org/")

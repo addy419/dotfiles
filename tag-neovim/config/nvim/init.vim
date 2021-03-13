@@ -14,12 +14,12 @@ endif
 
 " Theme
 syntax on
-colorscheme nord
+colorscheme dracula
 
 " StatusLine
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'dracula',
       \}
 
 " Basic
@@ -34,8 +34,3 @@ set expandtab
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
 map <silent> <C-n> :RangerWorkingDirectory<CR>
-
-" Buffer Delete
-let g:bclose_no_plugin_maps = 1
-nnoremap <Leader>q :Bclose<CR>
-nnoremap <Leader>q! :Bclose!<CR>

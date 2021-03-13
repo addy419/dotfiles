@@ -5,13 +5,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 
 " Theme
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Syntax Highlight
 Plug 'sheerun/vim-polyglot'
-
-" Bclose
-Plug 'rbgrouleff/bclose.vim'
 
 " Ranger
 Plug 'francoiscabrol/ranger.vim'
